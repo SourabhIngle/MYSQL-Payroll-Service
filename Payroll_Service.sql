@@ -295,3 +295,77 @@ mysql> select * from employee_payroll;
 5 rows in set (0.00 sec)
 
 ----------------END OF UC8--------------------------
+
+
+
+----------------- UC-9 ------------------
+---- Ability to extend employee_payroll table to have Basic
+-----Pay, Deductions, Taxable Pay, Income Tax, Net Pay ----
+
+mysql> alter table employee_payroll
+    -> add Deductions int,
+    -> add Taxable_Pay int,
+    -> add Income_Tax int,
+    -> add Net_Pay int;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee_payroll;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| EmpID        | bigint      | NO   | PRI | NULL    | auto_increment |
+| Name         | varchar(15) | YES  |     | NULL    |                |
+| Salary       | bigint      | YES  |     | NULL    |                |
+| Start_Date   | date        | YES  |     | NULL    |                |
+| Gender       | varchar(6)  | YES  |     | NULL    |                |
+| Phone_Number | bigint      | YES  |     | NULL    |                |
+| Address      | varchar(20) | YES  |     | Pune    |                |
+| Department   | varchar(20) | NO   |     | NULL    |                |
+| Deductions   | int         | YES  |     | NULL    |                |
+| Taxable_Pay  | int         | YES  |     | NULL    |                |
+| Income_Tax   | int         | YES  |     | NULL    |                |
+| Net_Pay      | int         | YES  |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+12 rows in set (0.00 sec)
+
+mysql> alter table employee_payroll
+    -> rename column salary to Basic_Pay;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee_payroll;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| EmpID        | bigint      | NO   | PRI | NULL    | auto_increment |
+| Name         | varchar(15) | YES  |     | NULL    |                |
+| Basic_Pay    | bigint      | YES  |     | NULL    |                |
+| Start_Date   | date        | YES  |     | NULL    |                |
+| Gender       | varchar(6)  | YES  |     | NULL    |                |
+| Phone_Number | bigint      | YES  |     | NULL    |                |
+| Address      | varchar(20) | YES  |     | Pune    |                |
+| Department   | varchar(20) | NO   |     | NULL    |                |
+| Deductions   | int         | YES  |     | NULL    |                |
+| Taxable_Pay  | int         | YES  |     | NULL    |                |
+| Income_Tax   | int         | YES  |     | NULL    |                |
+| Net_Pay      | int         | YES  |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+12 rows in set (0.00 sec)
+
+mysql> select * from employee_payroll;
++-------+---------+-----------+------------+--------+--------------+---------+------------+------------+-------------+------------+---------+
+| EmpID | Name    | Basic_Pay | Start_Date | Gender | Phone_Number | Address | Department | Deductions | Taxable_Pay | Income_Tax | Net_Pay |
++-------+---------+-----------+------------+--------+--------------+---------+------------+------------+-------------+------------+---------+
+|   101 | Mike    |     65000 | 2022-05-01 | M      |         NULL | Pune    |            |       NULL |        NULL |       NULL |    NULL |
+|   102 | Rahul   |     57000 | 2022-03-21 | M      |         NULL | Pune    |            |       NULL |        NULL |       NULL |    NULL |
+|   103 | Arun    |     77000 | 2022-06-05 | M      |         NULL | Pune    |            |       NULL |        NULL |       NULL |    NULL |
+|   104 | Anjali  |     79000 | 2022-06-05 | F      |         NULL | Pune    |            |       NULL |        NULL |       NULL |    NULL |
+|   105 | Sourabh |     88000 | 2022-06-05 | M      |         NULL | Pune    |            |       NULL |        NULL |       NULL |    NULL |
++-------+---------+-----------+------------+--------+--------------+---------+------------+------------+-------------+------------+---------+
+5 rows in set (0.00 sec)
+
+----------------END OF UC9--------------------------
+
+
+
