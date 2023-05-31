@@ -185,3 +185,71 @@ mysql> select * from employee_payroll;
 ----------------END OF UC6---------------------------
 
 
+-------------------------UC7-----------------------------
+---------- find sum, average, min, max and number--------
+--------of male and female employees --------------------
+mysql> UPDATE employee_payroll set gender = 'F' WHERE name = 'Anjali';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee_payroll;
++-------+---------+--------+------------+--------+
+| EmpID | Name    | Salary | Start_Date | Gender |
++-------+---------+--------+------------+--------+
+|   101 | Mike    |  65000 | 2022-05-01 | M      |
+|   102 | Rahul   |  57000 | 2022-03-21 | M      |
+|   103 | Arun    |  77000 | 2022-06-05 | M      |
+|   104 | Anjali  |  79000 | 2022-06-05 | F      |
+|   105 | Sourabh |  88000 | 2022-06-05 | M      |
++-------+---------+--------+------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT SUM(salary) FROM employee_payroll WHERE Gender = 'M' GROUP BY gender;
++-------------+
+| SUM(salary) |
++-------------+
+|      287000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT AVG(salary) FROM employee_payroll WHERE Gender = 'M' GROUP BY gender;
++-------------+
+| AVG(salary) |
++-------------+
+|  71750.0000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT MIN(salary) FROM employee_payroll WHERE Gender = 'M' GROUP BY gender;
++-------------+
+| MIN(salary) |
++-------------+
+|       57000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT MAX(salary) FROM employee_payroll WHERE Gender = 'M' GROUP BY gender;
++-------------+
+| MAX(salary) |
++-------------+
+|       88000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(salary) FROM employee_payroll WHERE Gender = 'M' GROUP BY gender;
++---------------+
+| COUNT(salary) |
++---------------+
+|             4 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(salary) FROM employee_payroll WHERE Gender = 'F' GROUP BY gender;
++---------------+
+| COUNT(salary) |
++---------------+
+|             1 |
++---------------+
+1 row in set (0.00 sec)
+
+----------------END OF UC7---------------------------
