@@ -132,24 +132,56 @@ mysql> SELECT salary FROM employee_payroll WHERE start_date BETWEEN CAST('2022-0
 ----------------END OF UC5---------------------------
 
 
+-------------------------UC6-----------------------------
+---------- UPDATE employee_payroll set gender -----------
+mysql> alter table employee_payroll add Gender varchar(6);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
 
+mysql> desc employee_payroll;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| EmpID      | bigint      | NO   | PRI | NULL    | auto_increment |
+| Name       | varchar(15) | YES  |     | NULL    |                |
+| Salary     | bigint      | YES  |     | NULL    |                |
+| Start_Date | date        | YES  |     | NULL    |                |
+| Gender     | varchar(6)  | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.01 sec)
 
+mysql> UPDATE employee_payroll set gender = 'M' WHERE name = 'Mike' or name = 'Rahul' or name = 'Arun' or  name = 'Sourabh';
+Query OK, 4 rows affected (0.00 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
 
+mysql> select * from employee_payroll;
++-------+---------+--------+------------+--------+
+| EmpID | Name    | Salary | Start_Date | Gender |
++-------+---------+--------+------------+--------+
+|   101 | Mike    |  65000 | 2022-05-01 | M      |
+|   102 | Rahul   |  57000 | 2022-03-21 | M      |
+|   103 | Arun    |  77000 | 2022-06-05 | M      |
+|   104 | Anjali  |  79000 | 2022-06-05 | NULL   |
+|   105 | Sourabh |  88000 | 2022-06-05 | M      |
++-------+---------+--------+------------+--------+
+5 rows in set (0.00 sec)
 
+mysql> UPDATE employee_payroll set gender = 'F' WHERE name = 'Anjali';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
 
+mysql> select * from employee_payroll;
++-------+---------+--------+------------+--------+
+| EmpID | Name    | Salary | Start_Date | Gender |
++-------+---------+--------+------------+--------+
+|   101 | Mike    |  65000 | 2022-05-01 | M      |
+|   102 | Rahul   |  57000 | 2022-03-21 | M      |
+|   103 | Arun    |  77000 | 2022-06-05 | M      |
+|   104 | Anjali  |  79000 | 2022-06-05 | F      |
+|   105 | Sourabh |  88000 | 2022-06-05 | M      |
++-------+---------+--------+------------+--------+
+5 rows in set (0.00 sec)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+----------------END OF UC6---------------------------
 
 
