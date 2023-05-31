@@ -62,3 +62,24 @@ mysql> EmpID BIGINT(4) PRIMARY KEY auto_increment,
 
 --------------------END OF UC2---------------------------
 
+
+-------------------------UC3-----------------------------
+------------ INSERT INTO employee_payroll ---------------
+mysql> insert into Employee_Payroll(EmpID, Name, Salary, Start_Date) values (101, "Mike", 65000, '2022-05-01');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Employee_Payroll(EmpID, Name, Salary, Start_Date) values (102, "Rahul", 57000, '2022-03-21');
+Query OK, 1 row affected (0.00 sec)
+
+---- EmpID is the primary key so we don't need to initialize EmpID values ----
+
+mysql> insert into Employee_Payroll(Name, Salary, Start_Date) values ("Arun", 77000, '2022-06-5');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Employee_Payroll(Name, Salary, Start_Date) values ("Anjali", 79000, '2022-06-5');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Employee_Payroll(Name, Salary, Start_Date) values ("Sourabh", 88000, '2022-06-5');
+Query OK, 1 row affected (0.00 sec)
+
+----------------END OF UC3---------------------------
