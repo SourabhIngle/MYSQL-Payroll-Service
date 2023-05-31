@@ -252,4 +252,46 @@ mysql> SELECT COUNT(salary) FROM employee_payroll WHERE Gender = 'F' GROUP BY ge
 +---------------+
 1 row in set (0.00 sec)
 
-----------------END OF UC7---------------------------
+----------------END OF UC7--------------------------
+
+----------------- UC-8 ------------------
+---- Extend employee_payroll data store employee information
+----like employee Phone, Address and Department.
+----(Ensure employee Department is non-nullable fields.
+----Add Default Value for Address field.)
+
+mysql> alter table employee_payroll
+    -> add Phone_Number bigint(10),
+    -> add Address varchar(20) default 'Pune',
+    -> add Department varchar(20) not null;
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> desc employee_payroll;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| EmpID        | bigint      | NO   | PRI | NULL    | auto_increment |
+| Name         | varchar(15) | YES  |     | NULL    |                |
+| Salary       | bigint      | YES  |     | NULL    |                |
+| Start_Date   | date        | YES  |     | NULL    |                |
+| Gender       | varchar(6)  | YES  |     | NULL    |                |
+| Phone_Number | bigint      | YES  |     | NULL    |                |
+| Address      | varchar(20) | YES  |     | Pune    |                |
+| Department   | varchar(20) | NO   |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from employee_payroll;
++-------+---------+--------+------------+--------+--------------+---------+------------+
+| EmpID | Name    | Salary | Start_Date | Gender | Phone_Number | Address | Department |
++-------+---------+--------+------------+--------+--------------+---------+------------+
+|   101 | Mike    |  65000 | 2022-05-01 | M      |         NULL | Pune    |            |
+|   102 | Rahul   |  57000 | 2022-03-21 | M      |         NULL | Pune    |            |
+|   103 | Arun    |  77000 | 2022-06-05 | M      |         NULL | Pune    |            |
+|   104 | Anjali  |  79000 | 2022-06-05 | F      |         NULL | Pune    |            |
+|   105 | Sourabh |  88000 | 2022-06-05 | M      |         NULL | Pune    |            |
++-------+---------+--------+------------+--------+--------------+---------+------------+
+5 rows in set (0.00 sec)
+
+----------------END OF UC8--------------------------
