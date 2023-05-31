@@ -103,3 +103,53 @@ mysql> Select * from employee_payroll;
 5 rows in set (0.00 sec)
 
 ----------------END OF UC4---------------------------
+
+
+-------------------------UC5-----------------------------
+---------- Find data employee WHERE CONDITION -----------
+mysql> use payroll_service;
+Database changed
+mysql> SELECT salary FROM employee_payroll WHERE name = 'Arun';
+--Use SELECT salary FROM employee_payroll WHERE name = 'Arun’
++--------+
+| salary |
++--------+
+|  77000 |
++--------+
+1 row in set (0.00 sec)
+--Query: WHERE start BETWEEN CAST('2018-01-01' AS DATE) AND DATE(NOW());
+mysql> SELECT salary FROM employee_payroll WHERE start_date BETWEEN CAST('2022-04-01' AS DATE) AND DATE(NOW());
++--------+
+| salary |
++--------+
+|  65000 |
+|  77000 |
+|  79000 |
+|  88000 |
++--------+
+4 rows in set (0.00 sec)
+
+----------------END OF UC5---------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
