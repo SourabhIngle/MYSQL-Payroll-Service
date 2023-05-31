@@ -83,3 +83,23 @@ mysql> insert into Employee_Payroll(Name, Salary, Start_Date) values ("Sourabh",
 Query OK, 1 row affected (0.00 sec)
 
 ----------------END OF UC3---------------------------
+
+-------------------------UC4-----------------------------
+------------ Retrieve all the data from the -------------
+--------------- employee_payroll table. -----------------
+
+mysql> use payroll_service;
+Database changed
+mysql> Select * from employee_payroll;
++-------+---------+--------+------------+
+| EmpID | Name    | Salary | Start_Date |
++-------+---------+--------+------------+
+|   101 | Mike    |  65000 | 2022-05-01 |
+|   102 | Rahul   |  57000 | 2022-03-21 |
+|   103 | Arun    |  77000 | 2022-06-05 |
+|   104 | Anjali  |  79000 | 2022-06-05 |
+|   105 | Sourabh |  88000 | 2022-06-05 |
++-------+---------+--------+------------+
+5 rows in set (0.00 sec)
+
+----------------END OF UC4---------------------------
