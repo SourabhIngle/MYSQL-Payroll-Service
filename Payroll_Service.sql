@@ -367,5 +367,141 @@ mysql> select * from employee_payroll;
 
 ----------------END OF UC9--------------------------
 
+----------------- UC-10 --------------------------------
+------Ability to make Terissa as part of Sales and------
+-----Marketing Department(Add new employee).------------
+------Add data in multiple row and column.--------------
+
+mysql> update employee_payroll set Deductions=6500, Taxable_pay=58500, Income_tax=10530, Net_pay=47970
+    -> where EmpID=101;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Deductions=5400, Taxable_pay=51300, Income_tax=9234, Net_pay=42066
+    -> where EmpID=102;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Deductions=7700, Taxable_pay=69300, Income_tax=13860, Net_pay=63140
+    -> where EmpID=103;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Deductions=7900, Taxable_pay=71100, Income_tax=12798, Net_pay=58302
+    -> where EmpID=104;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Deductions=8800, Taxable_pay=79200, Income_tax=14256, Net_pay=64944
+    -> where EmpID=105;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee_payroll;
++-------+---------+-----------+------------+--------+--------------+---------+------------+------------+-------------+------------+---------+
+| EmpID | Name    | Basic_Pay | Start_Date | Gender | Phone_Number | Address | Department | Deductions | Taxable_Pay | Income_Tax | Net_Pay |
++-------+---------+-----------+------------+--------+--------------+---------+------------+------------+-------------+------------+---------+
+|   101 | Mike    |     65000 | 2022-05-01 | M      |         NULL | Pune    |            |       6500 |       58500 |      10530 |   47970 |
+|   102 | Rahul   |     57000 | 2022-03-21 | M      |         NULL | Pune    |            |       5700 |       51300 |       9234 |   42066 |
+|   103 | Arun    |     77000 | 2022-06-05 | M      |         NULL | Pune    |            |       7700 |       69300 |      13860 |   63140 |
+|   104 | Anjali  |     79000 | 2022-06-05 | F      |         NULL | Pune    |            |       7900 |       71100 |      12798 |   58302 |
+|   105 | Sourabh |     88000 | 2022-06-05 | M      |         NULL | Pune    |            |       8800 |       79200 |      14256 |   64944 |
++-------+---------+-----------+------------+--------+--------------+---------+------------+------------+-------------+------------+---------+
+5 rows in set (0.00 sec)
+
+mysql> update employee_payroll set Phone_Number = 789456123 where EmpID=101;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Phone_Number = 894561237 where EmpID=102;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Phone_Number = 974561238 where EmpID=103;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Phone_Number = 674561238 where EmpID=104;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set Phone_Number = 874561238 where EmpID=105;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee_payroll;
++-------+---------+-----------+------------+--------+--------------+---------+------------+------------+-------------+------------+---------+
+| EmpID | Name    | Basic_Pay | Start_Date | Gender | Phone_Number | Address | Department | Deductions | Taxable_Pay | Income_Tax | Net_Pay |
++-------+---------+-----------+------------+--------+--------------+---------+------------+------------+-------------+------------+---------+
+|   101 | Mike    |     65000 | 2022-05-01 | M      |    789456123 | Pune    |            |       6500 |       58500 |      10530 |   47970 |
+|   102 | Rahul   |     57000 | 2022-03-21 | M      |    894561237 | Pune    |            |       5700 |       51300 |       9234 |   42066 |
+|   103 | Arun    |     77000 | 2022-06-05 | M      |    974561238 | Pune    |            |       7700 |       69300 |      13860 |   63140 |
+|   104 | Anjali  |     79000 | 2022-06-05 | F      |    674561238 | Pune    |            |       7900 |       71100 |      12798 |   58302 |
+|   105 | Sourabh |     88000 | 2022-06-05 | M      |    874561238 | Pune    |            |       8800 |       79200 |      14256 |   64944 |
++-------+---------+-----------+------------+--------+--------------+---------+------------+------------+-------------+------------+---------+
+5 rows in set (0.00 sec)
+
+mysql> alter table employee_payroll drop column department;
++-------+---------+-----------+------------+--------+--------------+-----------+------------+-------------+------------+---------+
+| EmpID | Name    | Basic_Pay | Start_Date | Gender | Phone_Number | Address   | Deductions | Taxable_Pay | Income_Tax | Net_Pay |
++-------+---------+-----------+------------+--------+--------------+-----------+------------+-------------+------------+---------+
+|   101 | Mike    |     65000 | 2022-05-01 | M      |    789456123 | Pune      |       6500 |       58500 |      10530 |   47970 |
+|   102 | Rahul   |     57000 | 2022-03-21 | M      |    894561237 | Pune      |       5700 |       51300 |       9234 |   42066 |
+|   103 | Arun    |     77000 | 2022-06-05 | M      |    974561238 | Pune      |       7700 |       69300 |      13860 |   63140 |
+|   104 | Anjali  |     79000 | 2022-06-05 | F      |    674561238 | Pune      |       7900 |       71100 |      12798 |   58302 |
+|   105 | Sourabh |     88000 | 2022-06-05 | M      |    874561238 | Pune      |       8800 |       79200 |      14256 |   64944 |
+|   106 | Terissa |    100000 | 2022-01-01 | F      |   6865666360 | Bengaluru |      10000 |       90000 |      16200 |   73800 |
++-------+---------+-----------+------------+--------+--------------+-----------+------------+-------------+------------+---------+
+6 rows in set (0.00 sec)
 
 
+mysql> insert into employee_payroll(EmpID, Name, Basic_pay, Start_date, Gender, Phone_Number, Address, Deductions, Taxable_pay, Income_tax, Net_pay)
+    -> values (106,"Terissa", 100000, '2022-01-01', 'F', 6865666360, "Bengaluru", 10000, 90000, 16200, 73800);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from employee_payroll;
++-------+---------+-----------+------------+--------+--------------+-----------+------------+-------------+------------+---------+
+| EmpID | Name    | Basic_Pay | Start_Date | Gender | Phone_Number | Address   | Deductions | Taxable_Pay | Income_Tax | Net_Pay |
++-------+---------+-----------+------------+--------+--------------+-----------+------------+-------------+------------+---------+
+|   101 | Mike    |     65000 | 2022-05-01 | M      |    789456123 | Pune      |       6500 |       58500 |      10530 |   47970 |
+|   102 | Rahul   |     57000 | 2022-03-21 | M      |    894561237 | Pune      |       5700 |       51300 |       9234 |   42066 |
+|   103 | Arun    |     77000 | 2022-06-05 | M      |    974561238 | Pune      |       7700 |       69300 |      13860 |   63140 |
+|   104 | Anjali  |     79000 | 2022-06-05 | F      |    674561238 | Pune      |       7900 |       71100 |      12798 |   58302 |
+|   105 | Sourabh |     88000 | 2022-06-05 | M      |    874561238 | Pune      |       8800 |       79200 |      14256 |   64944 |
+|   106 | Terissa |    100000 | 2022-01-01 | F      |   6865666360 | Bengaluru |      10000 |       90000 |      16200 |   73800 |
++-------+---------+-----------+------------+--------+--------------+-----------+------------+-------------+------------+---------+
+6 rows in set (0.00 sec)
+
+mysql> create table employee_department
+    -> (deptID int NOT NULL,
+    -> department varchar(15),
+    -> EmpID bigint,
+    -> primary key(deptID),
+    -> foreign key(EmpID) references employee_payroll(EmpID));
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> show tables;
++---------------------------+
+| Tables_in_payroll_service |
++---------------------------+
+| employee_department       |
+| employee_payroll          |
++---------------------------+
+2 rows in set (0.03 sec)
+
+mysql> insert into employee_department(deptID, department, EmpID) values (1, "Sales", 106);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee_department(deptID, department, EmpID) values (2, "Marketing", 106);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from employee_department;
++--------+------------+-------+
+| deptID | department | EmpID |
++--------+------------+-------+
+|      1 | Sales      |   106 |
+|      2 | Marketing  |   106 |
++--------+------------+-------+
+2 rows in set (0.00 sec)
+
+----------------END OF UC10--------------------------
