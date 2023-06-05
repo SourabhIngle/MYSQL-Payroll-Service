@@ -254,6 +254,7 @@ mysql> SELECT COUNT(salary) FROM employee_payroll WHERE Gender = 'F' GROUP BY ge
 
 ----------------END OF UC7--------------------------
 
+
 ----------------- UC-8 ------------------
 ---- Extend employee_payroll data store employee information
 ----like employee Phone, Address and Department.
@@ -295,7 +296,6 @@ mysql> select * from employee_payroll;
 5 rows in set (0.00 sec)
 
 ----------------END OF UC8--------------------------
-
 
 
 ----------------- UC-9 ------------------
@@ -366,6 +366,7 @@ mysql> select * from employee_payroll;
 5 rows in set (0.00 sec)
 
 ----------------END OF UC9--------------------------
+
 
 ----------------- UC-10 --------------------------------
 ------Ability to make Terissa as part of Sales and------
